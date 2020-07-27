@@ -132,7 +132,7 @@ ion-icon:not([name="menu-outline"]) {
     -webkit-text-fill-color: transparent;
     transition: background-size .7s;
 }
-.destination:hover {
+.imgChanger ul li a:hover .destination {
     background-size: 100% 100%;
 }
 .imgChanger ul li a:hover .describe{
