@@ -1,20 +1,27 @@
-let tl = gsap.timeline({ paused: true });
+let tl = gsap.timeline({
+   paused: true ,
+   delay: .5,
+   onStart: () => {
+    body.classList.add('noscroll')
+  },
+  onReverseComplete: () => {
+    body.classList.remove('noscroll')
+  }
+  });
 
 tl.from(".menu__informations", {
   scaleX: 0,
   duration: 1.2,
   ease: "Expo.easeInOut",
   transformOrigin: "left center",
-});
-
-tl.from(".menu__images img", {
+})
+.from(".menu__images img", {
   scaleX: 0,
   duration: 1.5,
   ease: "Expo.easeInOut",
   transformOrigin: "left center",
-});
-
-tl.from(
+})
+.from(
   ".menu__links ul li",
   {
     autoAlpha: 0,
@@ -27,12 +34,15 @@ tl.from(
     },
   },
   "<-.3"
-);
+)
 
 let navStatus = false;
-
+let menuImg = document.querySelectorAll(".menu__images img");
+let links = document.querySelectorAll(".imgChanger ul li a");
+let body = document.querySelector('body')
 document.querySelector(".hamburger").addEventListener("click", function () {
   if (this.getAttribute("aria-expanded") === "false") {
+    gsap.to(window, {duration: .5, scrollTo: 0});
     tl.play();
     this.setAttribute("aria-expanded", "true");
   } else {
@@ -42,9 +52,7 @@ document.querySelector(".hamburger").addEventListener("click", function () {
   }
 });
 
-let links = document.querySelectorAll(".imgChanger ul li a");
 
-let menuImg = document.querySelectorAll(".menu__images img");
 links.forEach((link, index) => {
   link.addEventListener("mouseenter", () => {
     if (navStatus == true) {
