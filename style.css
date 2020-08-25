@@ -147,7 +147,13 @@ ion-icon:not([name="menu-outline"]) {
 .space {
     height: 60vh;
 }
-
+.space img {
+    display: block;
+    width: 100%;
+}
+.link {
+   display: inline-block;
+}
 
 @media (min-width: 500px) {
 .menu__links ul li .number {

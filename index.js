@@ -9,6 +9,8 @@ let tl = gsap.timeline({
   }
   });
 
+
+
 tl.from(".menu__informations", {
   scaleX: 0,
   duration: 1.2,
@@ -71,10 +73,36 @@ links.forEach((link, index) => {
   });
 });
 
-links.forEach((link) => {
+
+
+links.forEach((link,index) => {
   link.addEventListener("click", () => {
-    tl.reverse();
+    let scrollTarget = link.getAttribute('href');
+
+    let tlScroll = gsap.timeline({
+      paused: true
+    }).to(window, {duration: 2, scrollTo: scrollTarget, ease: "expo.inOut"})
+   let fullTlScroll = gsap.timeline();
+   fullTlScroll.add(tl.reverse()).add(tlScroll.play())
+
+
     document.querySelector(".hamburger").setAttribute("aria-expanded", "false");
     navStatus = false;
+
   });
 });
+
+
+// let tlm = gsap.timeline({
+//   paused: true
+// }).to(".link", {x: 300});
+// let tlm2 = gsap.timeline({
+//   paused: true
+// }).to('.link', {x:1000});
+// let tlm3 = gsap.timeline({
+//   paused: true
+// }).to(window, {duration: .5, scrollTo: ".content"});
+// document.querySelector('.link').addEventListener('click', () => {
+//   let tlmF = gsap.timeline().add(tlm.play()).add(tlm2.play()).add(tlm3.play())
+ 
+// })
