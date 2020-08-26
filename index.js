@@ -1,9 +1,5 @@
-window.addEventListener("load",function() {
-  setTimeout(function(){
-      // This hides the address bar:
-      window.scrollTo(0, 1);
-  }, 0);
-});
+window.addEventListener("load", function() { window. scrollTo(0, 0); });
+document.addEventListener("touchmove", function(e) { e.preventDefault() });
 
 let tl = gsap.timeline({
   paused: true,
