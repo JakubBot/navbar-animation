@@ -154,7 +154,7 @@ ion-icon:not([name="menu-outline"]) {
 }
 
 .space {
-    height: 60vh;
+    height: 500px;
 }
 .space img {
     display: block;
