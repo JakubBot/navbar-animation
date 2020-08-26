@@ -96,14 +96,4 @@ links.forEach((link) => {
 });
 
 window.addEventListener("load", function() { window. scrollTo(0, 0); });
-document.addEventListener("touchmove", function(e) { e.preventDefault()
-  var bodyElement = document.documentElement;
-  if (bodyElement.requestFullscreen) {
-    bodyElement.requestFullscreen();
-  } else if (bodyElement.webkitrequestFullscreen) {
-    bodyElement.webkitrequestFullscreen();
-  } else if (bodyElement.mozrequestFullscreen) {
-    bodyElement.mozrequestFullscreen();
-  } else if (bodyElement.msrequestFullscreen) {
-    bodyElement.msrequestFullscreen();
-  } });
+document.addEventListener("touchmove", function(e) { e.preventDefault()});
