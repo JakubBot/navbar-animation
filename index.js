@@ -1,4 +1,4 @@
-window.addEventListener("load", function() { window. scrollTo(0, 0); });
+window.addEventListener("load", function() { window. scrollTo(0, 1); });
 
 let tl = gsap.timeline({
   paused: true,
