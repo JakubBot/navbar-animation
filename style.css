@@ -23,6 +23,7 @@ body.noscroll
     display: flex;
     justify-content: center;
     border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }
 
 .nav__hamburger {
@@ -56,7 +57,7 @@ body.noscroll
 }
 
 .menu__informations {
-    flex: 1 1 50%;
+    width: 100%;
     height: 100%;
     background-color: #fff;
     display: flex;
@@ -66,18 +67,18 @@ body.noscroll
 }
 
 .menu__links ul{
-    padding-left: 15px;
+    padding-left: 10px;
     margin: 0;
+    
 }
 .menu__links ul li {
     list-style-type: none;
     color: rgb(196, 196, 196);
-    margin: 10px 0;
+    padding: 5px 0;
 }
 .menu__links ul li a{
     list-style-type: none;
     color: rgb(196, 196, 196);
-    margin: 10px 0;
 }
 .menu__links ul li .number,
 .menu__links ul li .destination,
@@ -87,6 +88,7 @@ body.noscroll
     cursor: pointer;
 }
 .menu__links ul li  .number {
+    display: none;
     font-size: .9em;
 }
 .menu__links ul li  .destination {
@@ -96,11 +98,12 @@ body.noscroll
     font-size: 1em;
 }
 .menu__images {
-    width: 60%;
-    max-width: 700px;
+    width: 0%;
     display: none;
     height: 100%;
     position: relative;
+    background: url(img0.jpg) no-repeat 50% 50%;
+    background-size: cover;
 }
 
 .menu__images img
@@ -111,15 +114,13 @@ body.noscroll
     width: 100%;
     height: 100%;
 }
-.menu__images img:not(:nth-child(1)) {
-    opacity: 0;
-}
+
 .menu__social-icons {
-    box-sizing: border-box;
     width: 100%;
     margin-top: 40px;
     font-size: 2em;
 }
+
 ion-icon[name="menu-outline"] {
     color: rgba(21, 18, 24, 0.781);
     cursor: pointer;
@@ -128,6 +129,11 @@ ion-icon:not([name="menu-outline"]) {
     color: rgb(77, 77, 77);
     font-size: 1em;
 }
+
+.hide {
+    opacity: 0;
+}
+
 .destination {
     background: linear-gradient(#5b5b5b, #5b5b5b) left no-repeat, #afafaf;
     background-size: 0% 100%;
@@ -157,26 +163,34 @@ ion-icon:not([name="menu-outline"]) {
 
 @media (min-width: 500px) {
 .menu__links ul li .number {
-    font-size: 1.1em;
+    display: inline-block;
+    font-size: 1.3em;
 }
 .menu__links ul li .destination {
-    font-size: 2.5em;
+    font-size: 2.7em;
 }
 .menu__links ul li .describe {
-    font-size: 1.3em;
+    font-size: 1.4em;
 }
 .main h1 {
     font-size: 3em;
 }
 }
 @media (min-width: 940px) {
+    .menu__links ul {
+        padding-left: 25px;
+    }
     .nav {
         width: 100px;
     }
     .menu__images {
+        width: 40%;
+        max-width: 700px;
         display: block;
     }
-  
+  .menu__informations {
+      width: 60%;
+  }
     ion-icon:not([name="menu-outline"]) {
         margin: 0 5px;
     }
@@ -187,12 +201,18 @@ ion-icon:not([name="menu-outline"]) {
         width: 120px;
     }
     .menu__links ul li .number {
-        font-size: 1.2em;
+        font-size: 1.4em;
     }
     .menu__links ul li .destination {
-        font-size: 3em;
+        font-size: 3.3em;
     }
     .menu__links ul li .describe {
-        font-size: 1.3em;
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 1750px) {
+    .menu__informations {
+        width: calc(100% - 700px);
     }
 }
