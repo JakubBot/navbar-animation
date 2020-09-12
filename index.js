@@ -40,22 +40,16 @@ let navStatus = false;
 let menuImg = document.querySelectorAll(".menu__images img");
 let links = document.querySelectorAll(".imgChanger ul li a");
 let body = document.querySelector("body");
-document.querySelector(".hamburger").addEventListener("click", function () {
-  
-  let addTimelines = gsap.timeline();
 
-  
+document.querySelector(".hamburger").addEventListener("click", function () {
 
   if (this.getAttribute("aria-expanded") == "false") {
-    let scrollTl = gsap.timeline({
-      paused: true
-    }).to(window, { duration: 0.5, scrollTo: 0 })
-
-    addTimelines.add(scrollTl.play()).add(tl.play())
+    gsap.to(window, { duration: 0.5, scrollTo: 0 })
+    tl.play().delay(0.5)
     
     this.setAttribute("aria-expanded", "true");
   } else {
-    addTimelines.add(tl.reverse())
+    tl.reverse()
     
     this.setAttribute("aria-expanded", "false");
     navStatus = false;
@@ -86,7 +80,7 @@ links.forEach((link) => {
     let tlScroll = gsap.timeline({
         paused: true,
       })
-      .to(window, { duration: 2, scrollTo: scrollTarget, ease: "expo.inOut" });
+      .to(window, { duration: 2.2, scrollTo: scrollTarget, ease: "expo.inOut" });
     let addTimelines = gsap.timeline();
     addTimelines.add(tl.reverse()).add(tlScroll.play());
 
