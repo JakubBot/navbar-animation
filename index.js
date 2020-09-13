@@ -1,31 +1,30 @@
-
 let tl = gsap.timeline({
   paused: true,
   onStart: () => {
-    body.classList.add("noscroll");
+    body.classList.add('noscroll');
   },
   onReverseComplete: () => {
-    body.classList.remove("noscroll");
+    body.classList.remove('noscroll');
   },
 });
 
-tl.from(".menu__informations", {
+tl.from('.menu__informations', {
   scaleX: 0,
   duration: 1.2,
-  ease: "Expo.easeInOut",
-  transformOrigin: "left center",
+  ease: 'Expo.easeInOut',
+  transformOrigin: 'left center',
 })
-  .from(".menu__images", {
+  .from('.menu__images', {
     width: 0,
     duration: 1.5,
-    ease: "Expo.easeInOut",
-    transformOrigin: "left center",
+    ease: 'Expo.easeInOut',
+    transformOrigin: 'left center',
   })
   .from(
-    ".menu__links ul li",
+    '.menu__links ul li',
     {
       autoAlpha: 0,
-      ease: "Expo.easeInOut",
+      ease: 'Expo.easeInOut',
       duration: 2,
       stagger: 0.1,
       y: 20,
@@ -33,31 +32,32 @@ tl.from(".menu__informations", {
         navStatus = true;
       },
     },
-    "<-.3"
+    '<-.3'
   );
 
 let navStatus = false;
-let menuImg = document.querySelectorAll(".menu__images img");
-let links = document.querySelectorAll(".imgChanger ul li a");
-let body = document.querySelector("body");
+let menuImg = document.querySelectorAll('.menu__images img');
+let links = document.querySelectorAll('.imgChanger ul li a');
+let navItems = document.querySelectorAll('.imgChanger ul li');
+let body = document.querySelector('body');
 
-document.querySelector(".hamburger").addEventListener("click", function () {
+document.querySelector('.hamburger').addEventListener('click', function () {
+  if (this.getAttribute('aria-expanded') == 'false') {
+    gsap.to(window, { duration: 0.5, scrollTo: 0 }).then(() => {
+      tl.play();
+    });
 
-  if (this.getAttribute("aria-expanded") == "false") {
-    gsap.to(window, { duration: 0.5, scrollTo: 0 })
-    tl.play().delay(0.5)
-    
-    this.setAttribute("aria-expanded", "true");
+    this.setAttribute('aria-expanded', 'true');
   } else {
-    tl.reverse()
-    
-    this.setAttribute("aria-expanded", "false");
+    tl.reverse();
+
+    this.setAttribute('aria-expanded', 'false');
     navStatus = false;
   }
 });
 
-links.forEach((link, index) => {
-  link.addEventListener("mouseenter", () => {
+navItems.forEach((item, index) => {
+  item.addEventListener('mouseenter', () => {
     if (navStatus == true) {
       gsap.to(menuImg[index], {
         autoAlpha: 1,
@@ -65,7 +65,7 @@ links.forEach((link, index) => {
       });
     }
   });
-  link.addEventListener("mouseleave", () => {
+  item.addEventListener('mouseleave', () => {
     gsap.to(menuImg[index], {
       autoAlpha: 0,
       duration: 0.8,
@@ -74,18 +74,17 @@ links.forEach((link, index) => {
 });
 
 links.forEach((link) => {
-  link.addEventListener("click", () => {
-    let scrollTarget = link.getAttribute("href");
-
-    let tlScroll = gsap.timeline({
-        paused: true,
-      })
-      .to(window, { duration: 2.2, scrollTo: scrollTarget, ease: "expo.inOut" });
-    let addTimelines = gsap.timeline();
-    addTimelines.add(tl.reverse()).add(tlScroll.play());
-
-    document.querySelector(".hamburger").setAttribute("aria-expanded", "false");
+  link.addEventListener('click', () => {
+    let scrollTarget = link.getAttribute('href');
+  
+    tl.reverse().then(() => {
+      gsap.to(window, {
+        duration: 2.2,
+        scrollTo: scrollTarget,
+        ease: 'expo.inOut',
+      });
+    });
+    document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
     navStatus = false;
   });
 });
-
