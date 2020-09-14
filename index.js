@@ -28,17 +28,13 @@ tl.from('.menu__informations', {
       duration: 2,
       stagger: 0.1,
       y: 20,
-      onComplete: () => {
-        navStatus = true;
-      },
+      
     },
     '<-.3'
   );
 
-let navStatus = false;
 let menuImg = document.querySelectorAll('.menu__images img');
 let links = document.querySelectorAll('.imgChanger ul li a');
-let navItems = document.querySelectorAll('.imgChanger ul li');
 let body = document.querySelector('body');
 
 document.querySelector('.hamburger').addEventListener('click', function () {
@@ -52,26 +48,10 @@ document.querySelector('.hamburger').addEventListener('click', function () {
     tl.reverse();
 
     this.setAttribute('aria-expanded', 'false');
-    navStatus = false;
   }
 });
 
-navItems.forEach((item, index) => {
-  item.addEventListener('mouseenter', () => {
-    if (navStatus == true) {
-      gsap.to(menuImg[index], {
-        autoAlpha: 1,
-        duration: 0.8,
-      });
-    }
-  });
-  item.addEventListener('mouseleave', () => {
-    gsap.to(menuImg[index], {
-      autoAlpha: 0,
-      duration: 0.8,
-    });
-  });
-});
+
 
 links.forEach((link) => {
   link.addEventListener('click', () => {
@@ -85,6 +65,5 @@ links.forEach((link) => {
       });
     });
     document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
-    navStatus = false;
   });
 });
