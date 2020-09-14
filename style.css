@@ -103,19 +103,29 @@ body.noscroll
     display: none;
     height: 100%;
     position: relative;
-    background: url(img0.jpg) no-repeat 50% 50%;
+    background: url('./static/images/3d-image.jpg') no-repeat 50% 50%;
     background-size: cover;
+    position: relative;
+    overflow: hidden;
 }
 
-.menu__images img
-{
+.menu__images > ul {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+} 
+.menu__images > ul > li {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
-
 .menu__social-icons {
     width: 100%;
     margin-top: 40px;
@@ -131,9 +141,6 @@ ion-icon:not([name="menu-outline"]) {
     font-size: 1em;
 }
 
-.hide {
-    opacity: 0;
-}
 
 .destination {
     background: linear-gradient(#5b5b5b, #5b5b5b) left no-repeat, #afafaf;
@@ -143,10 +150,10 @@ ion-icon:not([name="menu-outline"]) {
     -webkit-text-fill-color: transparent;
     transition: background-size .7s;
 }
-.imgChanger ul li a:hover .destination {
+.imgChanger ul li:hover a .destination {
     background-size: 100% 100%;
 }
-.imgChanger ul li a:hover .describe{
+.imgChanger ul li:hover a .describe{
     color: #a66f2c;
     transition: color .7s;
 }
@@ -161,6 +168,17 @@ ion-icon:not([name="menu-outline"]) {
 .link {
    display: inline-block;
 }
+
+.c-canvas {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
 
 @media (min-width: 500px) {
 .menu__links ul li .number {
@@ -186,12 +204,14 @@ ion-icon:not([name="menu-outline"]) {
     }
     .menu__images {
         width: 40%;
-        max-width: 700px;
         display: block;
     }
   .menu__informations {
       width: 60%;
   }
+  
+
+  
     ion-icon:not([name="menu-outline"]) {
         margin: 0 5px;
     }
@@ -212,8 +232,3 @@ ion-icon:not([name="menu-outline"]) {
     }
 }
 
-@media (min-width: 1750px) {
-    .menu__informations {
-        width: calc(100% - 700px);
-    }
-}
