@@ -8,8 +8,8 @@ let tl = gsap.timeline({
   },
 });
 
-tl.from('.menu__informations', {
-  scaleX: 0,
+tl.to('.menu__informations', {
+  scaleX: 1,
   duration: 1.2,
   ease: 'Expo.easeInOut',
   transformOrigin: 'left center',
@@ -28,7 +28,6 @@ tl.from('.menu__informations', {
       duration: 2,
       stagger: 0.1,
       y: 20,
-      
     },
     '<-.3'
   );
@@ -51,12 +50,10 @@ document.querySelector('.hamburger').addEventListener('click', function () {
   }
 });
 
-
-
 links.forEach((link) => {
   link.addEventListener('click', () => {
     let scrollTarget = link.getAttribute('href');
-  
+
     tl.reverse().then(() => {
       gsap.to(window, {
         duration: 2.2,

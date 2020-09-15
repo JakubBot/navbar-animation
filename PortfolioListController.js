@@ -75,8 +75,10 @@ window.PIXI = PIXI;
 
     portfolioEvents() {
         for (let i = 0; i < this.portfolioItems.length; i++) {
-            
 
+            // this.portfolioItems[i].addEventListener("mousemove", (ev) => {
+            //     this.portfolioMousemove(ev);
+            // });
             this.portfolioItems[i].addEventListener("mouseenter", () => {
                 this.portfolioItemMouseenter(i + 1); // why +1? Hint: PIXI related
             });
@@ -87,12 +89,10 @@ window.PIXI = PIXI;
         }
     }
 
-    
-
     portfolioController() {
         const imageContainer = document.querySelector('.menu__images'); 
-        const canvasWidth = imageContainer.offsetWidth + 200;
-        const canvasHeight = imageContainer.offsetHeight + 10;
+        const canvasWidth = imageContainer.offsetWidth;
+        const canvasHeight = imageContainer.offsetHeight;
         
         // assign/create new PIXI application which automatically creates the renderer, ticker, and root container/stage
         this.app = new PIXI.Application({
@@ -206,17 +206,17 @@ window.PIXI = PIXI;
             );
     }
 
-    portfolioMousemove(ev) {
-        const decimalX = ev.clientX / window.innerWidth - 0.5;
-        const decimalY = ev.clientY / window.innerHeight - 0.5;
+    // portfolioMousemove(ev) {
+    //     const decimalX = ev.clientX / window.innerWidth - 0.5;
+    //     const decimalY = ev.clientY / window.innerHeight - 0.5;
 
-        gsap.to(this.portfolioCanvas, {
-            duration: 0.4,
-            x: 300 * decimalX,
-            y: 150 * decimalY,
-            ease: "power3.out",
-        });
-    }
+    //     gsap.to(this.portfolioCanvas, {
+    //         duration: 0.4,
+    //         x: 300 * decimalX,
+    //         y: 150 * decimalY,
+    //         ease: "power3.out",
+    //     });
+    // }
 
     portfolioItemMouseenter(index) {
         gsap.to(this.app.stage.children[index], {
