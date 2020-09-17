@@ -54,6 +54,8 @@ body.noscroll {
   top: 0;
   left: 0;
   display: flex;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .menu__informations {
@@ -99,8 +101,8 @@ body.noscroll {
 }
 
 .menu__images {
-  width: 0%;
   display: none;
+  width: 0%;
   height: 100%;
   position: relative;
   background: url('./static/images/3d-image.jpg') no-repeat 50% 50%;
@@ -200,8 +202,8 @@ ion-icon:not([name='menu-outline']) {
     width: 100px;
   }
   .menu__images {
-    width: 40%;
     display: block;
+    width: 40%;
   }
   .menu__informations {
     width: 60%;
