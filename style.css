@@ -78,26 +78,39 @@ body.noscroll {
   color: rgb(196, 196, 196);
   padding: 5px 0;
 }
-.menu__links ul li a {
+.js-portfolio-item a {
   list-style-type: none;
-  color: rgb(196, 196, 196);
+  color: rgb(172, 172, 172);
 }
-.menu__links ul li .number,
-.menu__links ul li .destination,
-.menu__links ul li .describe {
+.js-portfolio-item a .number,
+.js-portfolio-item a .destination,
+.js-portfolio-item a .describe {
   display: inline-block;
   margin: 3px;
   cursor: pointer;
 }
-.menu__links ul li .number {
-  display: none;
+.js-portfolio-item a .number {
+  font-size: 0.8em;
+}
+.js-portfolio-item a .destination {
+  font-size: 1.6em;
+  background: linear-gradient(#5b5b5b, #5b5b5b) left no-repeat, #afafaf;
+  background-size: 0% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-size 0.7s;
+}
+.js-portfolio-item a .describe {
   font-size: 0.9em;
 }
-.menu__links ul li .destination {
-  font-size: 1.8em;
+
+.js-portfolio-item:hover a .destination {
+  background-size: 100% 100%;
 }
-.menu__links ul li .describe {
-  font-size: 1em;
+.js-portfolio-item:hover a .describe {
+  color: #a66f2c;
+  transition: color 0.7s;
 }
 
 .menu__images {
@@ -118,7 +131,10 @@ body.noscroll {
   width: 100%;
   height: 100%;
 }
-
+.menu__images__canvas canvas {
+  width: 100%;
+  height: 100%;
+}
 .menu__images__list {
   position: absolute;
   left: 0;
@@ -141,6 +157,29 @@ body.noscroll {
   width: 100%;
   margin-top: 40px;
   font-size: 2em;
+  position: relative;
+}
+
+.menu__scroller {
+  position: relative;
+}
+
+.menu__scroller .text {
+  position: absolute;
+  bottom: -20%;
+  right: 0%;
+  transform: rotate(-90deg) ;
+  transform-origin: bottom right;
+  font-size: 26px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+.menu__scroller .text span:first-child {
+  color: rgb(196, 196, 196);
+}
+.menu__scroller .text span:last-child {
+  color: #00000000;
+  -webkit-text-stroke: 1px rgb(196, 196, 196)
 }
 
 ion-icon[name='menu-outline'] {
@@ -152,21 +191,6 @@ ion-icon:not([name='menu-outline']) {
   font-size: 1em;
 }
 
-.destination {
-  background: linear-gradient(#5b5b5b, #5b5b5b) left no-repeat, #afafaf;
-  background-size: 0% 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: background-size 0.7s;
-}
-.imgChanger ul li:hover a .destination {
-  background-size: 100% 100%;
-}
-.imgChanger ul li:hover a .describe {
-  color: #a66f2c;
-  transition: color 0.7s;
-}
 
 .space {
   height: 500px;
@@ -179,19 +203,49 @@ ion-icon:not([name='menu-outline']) {
   display: inline-block;
 }
 
+@media (min-width: 360px) {
+  .js-portfolio-item a .number {
+    font-size: 1em;
+  }
+  .js-portfolio-item a .destination {
+    font-size: 1.9em;
+  }
+  .js-portfolio-item a .describe {
+    font-size: 1.1em;
+  }
+  .menu__scroller .text {
+    font-size: 35px;
+    letter-spacing: 4px;
+    
+  }
+  .menu__links ul {
+    padding-left: 15px;
+  }
+}
+
 @media (min-width: 500px) {
   .menu__links ul li .number {
-    display: inline-block;
-    font-size: 1.3em;
+    font-size: 1.4em;
   }
   .menu__links ul li .destination {
-    font-size: 2.7em;
+    font-size: 2.8em;
   }
   .menu__links ul li .describe {
     font-size: 1.4em;
   }
   .main h1 {
     font-size: 3em;
+  }
+  .menu__links ul {
+    padding-left: 30px;
+  }
+  .menu__scroller .text {
+    font-size: 42px;
+    letter-spacing: 4px;
+    bottom: 0%;
+  }
+  .menu__links ul {
+    padding-left: 20px;
   }
 }
 @media (min-width: 940px) {
@@ -212,19 +266,20 @@ ion-icon:not([name='menu-outline']) {
   ion-icon:not([name='menu-outline']) {
     margin: 0 5px;
   }
+ 
 }
 
 @media (min-width: 1200px) {
   .nav {
     width: 120px;
   }
-  .menu__links ul li .number {
-    font-size: 1.4em;
-  }
   .menu__links ul li .destination {
     font-size: 3.3em;
   }
   .menu__links ul li .describe {
     font-size: 1.5em;
+  }
+  .menu__scroller .text {
+    font-size: 55px;
   }
 }

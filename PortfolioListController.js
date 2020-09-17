@@ -219,15 +219,18 @@ window.PIXI = PIXI;
     // }
 
     portfolioItemMouseenter(index) {
-        gsap.to(this.app.stage.children[index], {
-            duration: 0.4,
-            alpha: 1,
-            ease: "power3.out",
-            onStart: () => {
-                this.displacementTimeline.restart().pause();
-                this.displacementTimeline.play();
-            },
-        });
+        if (navStatus == true) {
+            gsap.to(this.app.stage.children[index], {
+                duration: 0.4,
+                alpha: 1,
+                ease: "power3.out",
+                onStart: () => {
+                    this.displacementTimeline.restart().pause();
+                    this.displacementTimeline.play();
+                },
+            });
+        }
+        
     }
 
     portfolioItemMouseleave() {

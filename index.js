@@ -8,12 +8,14 @@ let tl = gsap.timeline({
   },
 });
 
-tl.to('.menu__informations', {
-  scaleX: 1,
-  duration: 1.2,
-  ease: 'Expo.easeInOut',
-  transformOrigin: 'left center',
-})
+tl.set('.menu__images__canvas', { autoAlpha: 0 })
+  .to('.menu__informations', {
+    
+    scaleX: 1,
+    duration: 1.2,
+    ease: 'Expo.easeInOut',
+    transformOrigin: 'left center',
+  })
   .fromTo(
     '.menu__images',
     {
@@ -36,8 +38,8 @@ tl.to('.menu__informations', {
       y: 20,
     },
     '<-.3'
-  );
-
+  )
+  .to('.menu__images__canvas', { autoAlpha: 1, duration: 1 }, '>-1');
 //prevent from seeing nav image on loading page
 gsap.set('.menu', { autoAlpha: 1 });
 
@@ -46,12 +48,15 @@ const body = document.querySelector('body');
 
 document.querySelector('.hamburger').addEventListener('click', function () {
   if (this.getAttribute('aria-expanded') == 'false') {
+    navStatus = true; 
+    
     gsap.to(window, { duration: 0.5, scrollTo: 0 }).then(() => {
       tl.play();
     });
 
     this.setAttribute('aria-expanded', 'true');
   } else {
+    navStatus = false;
     tl.reverse();
 
     this.setAttribute('aria-expanded', 'false');
@@ -60,7 +65,7 @@ document.querySelector('.hamburger').addEventListener('click', function () {
 
 links.forEach((link) => {
   link.addEventListener('click', () => {
-    
+    navStatus = false;
     let scrollTarget = link.getAttribute('href');
 
     tl.reverse().then(() => {
@@ -73,3 +78,5 @@ links.forEach((link) => {
     document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
   });
 });
+
+let navStatus = true;
