@@ -166,7 +166,7 @@ body.noscroll {
 
 .menu__scroller .text {
   position: absolute;
-  bottom: -20%;
+  bottom: -15%;
   right: 0%;
   transform: rotate(-90deg) ;
   transform-origin: bottom right;
@@ -203,7 +203,7 @@ ion-icon:not([name='menu-outline']) {
   display: inline-block;
 }
 
-@media (min-width: 360px) {
+@media (min-width: 380px) {
   .js-portfolio-item a .number {
     font-size: 1em;
   }
@@ -216,22 +216,24 @@ ion-icon:not([name='menu-outline']) {
   .menu__scroller .text {
     font-size: 35px;
     letter-spacing: 4px;
-    
   }
   .menu__links ul {
     padding-left: 15px;
+  }
+  .menu__scroller .text {
+    bottom: -5%;
   }
 }
 
 @media (min-width: 500px) {
   .menu__links ul li .number {
-    font-size: 1.4em;
+    font-size: 1.2em;
   }
   .menu__links ul li .destination {
-    font-size: 2.8em;
+    font-size: 2.6em;
   }
   .menu__links ul li .describe {
-    font-size: 1.4em;
+    font-size: 1.3em;
   }
   .main h1 {
     font-size: 3em;
@@ -242,7 +244,7 @@ ion-icon:not([name='menu-outline']) {
   .menu__scroller .text {
     font-size: 42px;
     letter-spacing: 4px;
-    bottom: 0%;
+    bottom: 25%;
   }
   .menu__links ul {
     padding-left: 20px;
@@ -262,11 +264,19 @@ ion-icon:not([name='menu-outline']) {
   .menu__informations {
     width: 60%;
   }
-
+  .menu__links ul li .destination {
+    font-size: 3em;
+  }
+  .menu__links ul li .describe {
+    font-size: 1.2em;
+  }
   ion-icon:not([name='menu-outline']) {
     margin: 0 5px;
   }
- 
+  .menu__scroller .text {
+    font-size: 50px;
+    bottom: 40%;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -279,7 +289,5 @@ ion-icon:not([name='menu-outline']) {
   .menu__links ul li .describe {
     font-size: 1.5em;
   }
-  .menu__scroller .text {
-    font-size: 55px;
-  }
+ 
 }

@@ -10,7 +10,6 @@ let tl = gsap.timeline({
 
 tl.set('.menu__images__canvas', { autoAlpha: 0 })
   .to('.menu__informations', {
-    
     scaleX: 1,
     duration: 1.2,
     ease: 'Expo.easeInOut',
@@ -45,6 +44,7 @@ gsap.set('.menu', { autoAlpha: 1 });
 
 const links = document.querySelectorAll('.menu__scroller ul li a');
 const body = document.querySelector('body');
+let navStatus = false;
 
 document.querySelector('.hamburger').addEventListener('click', function () {
   if (this.getAttribute('aria-expanded') == 'false') {
@@ -79,4 +79,3 @@ links.forEach((link) => {
   });
 });
 
-let navStatus = true;
