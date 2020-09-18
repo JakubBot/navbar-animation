@@ -208,21 +208,21 @@ ion-icon:not([name='menu-outline']) {
     font-size: 1em;
   }
   .js-portfolio-item a .destination {
-    font-size: 1.9em;
+    font-size: 1.8em;
   }
   .js-portfolio-item a .describe {
-    font-size: 1.1em;
+    font-size: 1em;
   }
   .menu__scroller .text {
-    font-size: 35px;
+    font-size: 30px;
     letter-spacing: 4px;
+    bottom: -2%;
+
   }
   .menu__links ul {
     padding-left: 15px;
   }
-  .menu__scroller .text {
-    bottom: -5%;
-  }
+ 
 }
 
 @media (min-width: 500px) {
