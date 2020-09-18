@@ -203,7 +203,7 @@ ion-icon:not([name='menu-outline']) {
   display: inline-block;
 }
 
-@media (min-width: 380px) {
+@media (min-width: 360px) {
   .js-portfolio-item a .number {
     font-size: 1em;
   }
