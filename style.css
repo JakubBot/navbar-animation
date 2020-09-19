@@ -91,9 +91,10 @@ body.noscroll {
 }
 .js-portfolio-item a .number {
   font-size: 0.8em;
+  display: none;
 }
 .js-portfolio-item a .destination {
-  font-size: 1.6em;
+  font-size: 1.8em;
   background: linear-gradient(#5b5b5b, #5b5b5b) left no-repeat, #afafaf;
   background-size: 0% 100%;
   background-clip: text;
@@ -102,7 +103,7 @@ body.noscroll {
   transition: background-size 0.7s;
 }
 .js-portfolio-item a .describe {
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 .js-portfolio-item:hover a .destination {
@@ -191,7 +192,6 @@ ion-icon:not([name='menu-outline']) {
   font-size: 1em;
 }
 
-
 .space {
   height: 500px;
 }
@@ -208,10 +208,10 @@ ion-icon:not([name='menu-outline']) {
     font-size: 1em;
   }
   .js-portfolio-item a .destination {
-    font-size: 1.8em;
+    font-size: 2em;
   }
   .js-portfolio-item a .describe {
-    font-size: 1em;
+    font-size: 1.1em;
   }
   .menu__scroller .text {
     font-size: 30px;
@@ -228,6 +228,7 @@ ion-icon:not([name='menu-outline']) {
 @media (min-width: 500px) {
   .menu__links ul li .number {
     font-size: 1.2em;
+    display: inline-block;
   }
   .menu__links ul li .destination {
     font-size: 2.6em;
