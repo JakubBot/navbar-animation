@@ -34,20 +34,68 @@ body.noscroll {
 .main {
   flex-grow: 1;
   height: 100%;
-  background: url('forest-1845974_1280.jpg') 0 0 / cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)),
+    url('forest-1845974_1280.jpg') 0 0 / cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  flex-direction: column;
 }
 
 .main h1 {
-  color: #fff;
+  color: #efefef;
   font-size: 2.5em;
+  letter-spacing: 2px;
+  margin: 0;
+}
+.main h3 {
+  display: none;
+  margin: 0;
+  color: #ddd;
+  font-size: 1.8em;
   letter-spacing: 2px;
 }
 
+.socials {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  color: #efefef;
+  display: flex;
+  gap: 12px;
+  padding: 0 12px 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.socials .socials__link__item {
+  list-style-type: none;
+  font-size: 30px;
+}
+
+
+.main .hello {
+  position: absolute;
+  bottom: 70px;
+  right: -30px;
+  transform: rotate(-90deg);
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 1px;
+  display: none;
+}
+
+.main .hello span:last-child {
+  margin-left: -10px;
+  color: #00000000;
+  -webkit-text-stroke: 2px rgb(213, 213, 213);
+}
+
 .menu {
+  filter: unset;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -56,6 +104,8 @@ body.noscroll {
   display: flex;
   opacity: 0;
   visibility: hidden;
+  padding: 0;
+  margin: 0;
 }
 
 .menu__informations {
@@ -169,7 +219,7 @@ body.noscroll {
   position: absolute;
   bottom: -15%;
   right: 0%;
-  transform: rotate(-90deg) ;
+  transform: rotate(-90deg);
   transform-origin: bottom right;
   font-size: 26px;
   letter-spacing: 3px;
@@ -180,7 +230,7 @@ body.noscroll {
 }
 .menu__scroller .text span:last-child {
   color: #00000000;
-  -webkit-text-stroke: 1px rgb(196, 196, 196)
+  -webkit-text-stroke: 1px rgb(196, 196, 196);
 }
 
 ion-icon[name='menu-outline'] {
@@ -217,12 +267,10 @@ ion-icon:not([name='menu-outline']) {
     font-size: 30px;
     letter-spacing: 4px;
     bottom: -2%;
-
   }
   .menu__links ul {
     padding-left: 15px;
   }
- 
 }
 
 @media (min-width: 500px) {
@@ -239,6 +287,9 @@ ion-icon:not([name='menu-outline']) {
   .main h1 {
     font-size: 3em;
   }
+  .main .hello {
+    display: initial;
+  }
   .menu__links ul {
     padding-left: 30px;
   }
@@ -251,9 +302,26 @@ ion-icon:not([name='menu-outline']) {
     padding-left: 20px;
   }
 }
+
+@media screen and (min-width: 640px) {
+  .main h3 {
+    display: initial;
+  }
+ 
+}
+
 @media (min-width: 940px) {
+  .socials {
+    top: 10px;
+  }
+  .socials .socials__link__item {
+    font-size: 35px;
+  }
   .menu__links ul {
     padding-left: 25px;
+  }
+  .main .hello {
+    font-size: 50px;
   }
   .nav {
     width: 100px;
@@ -290,5 +358,4 @@ ion-icon:not([name='menu-outline']) {
   .menu__links ul li .describe {
     font-size: 1.5em;
   }
- 
 }
